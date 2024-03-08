@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#page-header {
+    margin-top: 1px;
+    background: rgba(0, 0, 0, 0.6)url("../../public/images/Banner1.jpg");
+    background-blend-mode: darken;
+    height: 40vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 25% right 0;
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0px 20px 0px;
+}
+#hash{
+    font-size: 130px;
+    color: gold;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.text h2 {
+    color: #fff;
+    letter-spacing: 4px;
+    font-size: 46px;
+    line-height: 54px;
+    
+}
+.text h1 {
+    font-size: 50px;
+    line-height: 64px;
+    color: gold;
+    letter-spacing: 10px;
+    margin-left: 2px;
+}
+#page-header h1 > span {
+    color: white;
+}
+

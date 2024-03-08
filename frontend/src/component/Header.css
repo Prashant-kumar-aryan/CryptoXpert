@@ -1,47 +1,72 @@
-.navbar {
-    background: linear-gradient(to right, #3498db, #1abc9c);
-    display: flex;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.navbar>* {
-    font-size: large;
-    margin-right: 12px;
+/* CSS reset to remove underlines */
+a {
     text-decoration: none;
-    transition: color 0.5s ease, transform 0.5s ease;
-    position: relative;
 }
 
-.navbar>*:first-child {
-    margin-left: 10px;
-}
-
-.navbar> :nth-last-child(2) {
-    margin-left:880px;
-}
-
-.navbar> :last-child {
-    margin-left: auto;
-}
-.navbar>*:hover {
-    color: #ecf0f1;
-    transform: scale(1.1);
-}
-.navbar>*:hover::before {
-    content: '';
-    position: absolute;
+#header {
+    display: flex;
     width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, #ecf0f1, #ecf0f1);
-    bottom: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 80px;
+    background-color: #020715;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
     left: 0;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    z-index: 999;
+    transition: 0.6;
+    margin-bottom: 10px;
 }
 
-.navbar>*:hover::before {
-    opacity: 1;
+.logo h1 {
+    margin: 0;
+    color: white;
+    font-size: 32px;
+}
+
+.logo span {
+    color: gold;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 70%;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+    transition: 0.6s;
+}
+
+#navbar li a {
+    color: white;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: gold
+}
+
+#navbar a.active::after,
+#navbar li a:hover::after {
+
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
 }
