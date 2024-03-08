@@ -15,7 +15,6 @@ input{
     border: 1px solid rgba(196,196,196 , 0.683);
     outline:none;
     border-radius:5px;
-
 }
 form {
     gap: 20px;
@@ -193,3 +192,4 @@ form {
         transform:rotatez(360deg);
     }
 }
+

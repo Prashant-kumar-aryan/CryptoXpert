@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react'
 import Coins from './Coins.jsx'
 import data from './temp'
 import Loader from "./Loader.jsx"
-const Home = () => {
-
+import "./Home.css"
+const Home = () => { 
 const [coins,setCoins]=useState([]);
 const[loading,setLoading]=useState(true);
 useEffect(() => {
@@ -24,10 +24,17 @@ useEffect(() => {
   return (
     loading?<Loader/>:(
     <div className='home'>
-      {/* {coins.map((i)=>(
-        <Coins name={i.name} symbol={i.symbol} key={i.id} imgSrc={i.image} price={i.current_price}/>
-      ))} */}
-    </div>)
+      <section id="page-header" >
+            <div >
+              <h1 id ="hash">#</h1>
+            </div>
+            <div className='text'>
+              <h2>LEARN  MORE</h2>
+              <h1>TRADE MORE</h1>
+            </div>
+      </section>
+    </div>
+    )
   )
 }
 
