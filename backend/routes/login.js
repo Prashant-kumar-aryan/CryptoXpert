@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken');
 
 
 router.post('/', async (req, res, next) => {
-    console.log(req.body);
     const user = await User.findOne({ username: req.body.name });
 
     //wrong User-name 
@@ -18,18 +17,16 @@ router.post('/', async (req, res, next) => {
 
     //correcct password
     if (pass === req.body.password) {
+        console.log(" Of course I waited for you 💗")
 
-        // console.log('correct');
-        const token = jwt.sign(user.toString(), "key");
-        // console.log(token);
+        // const token = jwt.sign(user.toString(), "key");
 
-        //saving token in body for further use
-        req.token = token;
-        // authorize(req, res, next);
-        console.log("Champu");
+        // //saving token in body for further use
+        // req.token = token;
+
         //response
-        // res.status(201).redirect('http://localhost:3000/home');
-        res.json("yes SIR ")
+        return res.status(200).json("Login successful");
+        // res.redirect('http://localhost:3000/');
     }
 
     else {

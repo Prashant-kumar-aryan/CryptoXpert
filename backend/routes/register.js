@@ -21,7 +21,8 @@ router.post('/', async (req, res) => {
         res.json("yes");
     }
     catch (err) {
-        console.log("-------------------blyat------------------------", err);
+        console.log(" Private ! No connection established❕");
+        console.log(err);
         res.status(500).json(err);
     }
 });
