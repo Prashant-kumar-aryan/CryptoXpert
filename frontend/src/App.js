@@ -7,6 +7,9 @@ import CoinDetails from "./component/CoinDetails.jsx";
 import Contact from "./component/Contact";
 import Coins from "./component/Coins";
 import Exchanges from "./component/Exchanges";
+import Footer from "./component/Footer.jsx";
+import Whatsapp from "./component/Whatsapp.jsx";
+import Chat from "./component/Chat/Chat.jsx";
 function App() {
   return (
     <Router>
@@ -18,7 +21,10 @@ function App() {
         <Route path="/exchanges" element={<Exchanges />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/chat" element={<Chat />} />
       </Routes>
+      <Footer />
+      <Whatsapp />
     </Router>
   );
 }
