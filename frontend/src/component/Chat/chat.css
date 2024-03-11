@@ -1,6 +1,9 @@
 .title {
+    margin: 10px 40px 0px 10px;
+    border-radius: 5px;
     letter-spacing: 5px;
     background: linear-gradient(to right, teal, grey);
+    text-shadow: 1px 1px grey;
     padding: 20px;
 }
 
@@ -10,7 +13,9 @@
 }
 
 .container {
-    height: 90vh;
+    margin: 0px 40px 0px 10px;
+    border-radius: 2px;
+    height: 60vh;
     /* Adjusted height to accommodate the form area */
     background-color: antiquewhite;
     overflow-y: auto;
@@ -37,6 +42,7 @@
 }
 
 .formarea {
+    margin: 0px 40px 10px 10px;
     display: flex;
     align-items: center;
     justify-content: flex-start;

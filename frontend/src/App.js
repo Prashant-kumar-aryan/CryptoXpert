@@ -10,6 +10,7 @@ import Exchanges from "./component/Exchanges";
 import Footer from "./component/Footer.jsx";
 import Whatsapp from "./component/Whatsapp.jsx";
 import Chat from "./component/Chat/Chat.jsx";
+import Ai from "./component/gemini/Ai.jsx";
 function App() {
   return (
     <Router>
@@ -22,6 +23,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/chat" element={<Chat />} />
+        <Route path="/ai" element={<Ai />} />
       </Routes>
       <Footer />
       <Whatsapp />
