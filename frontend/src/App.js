@@ -7,6 +7,8 @@ import CoinDetails from "./component/CoinDetails.jsx";
 import Contact from "./component/Contact";
 import Coins from "./component/Coins";
 import Exchanges from "./component/Exchanges";
+import Login from "./pages/login.jsx";
+import Signup from "./pages/signup.jsx";
 function App() {
   return (
     <Router>
@@ -18,6 +20,8 @@ function App() {
         <Route path="/exchanges" element={<Exchanges />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
   );
