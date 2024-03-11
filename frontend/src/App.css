@@ -4,9 +4,6 @@
     padding: 2rem;
     flex-wrap: wrap;
 }
-.contact{
-    background-color: blueviolet;
-}
 .about{
     background-color: blue;
 }
@@ -16,7 +13,7 @@ input{
     outline:none;
     border-radius:5px;
 }
-form {
+/* form {
     gap: 20px;
     display: flex;
     flex-direction: column;
@@ -24,7 +21,7 @@ form {
     align-items: center;
     height: 80vh;
 
-}
+} */
 .pagebutton {
     display:flex;
     justify-content: center;

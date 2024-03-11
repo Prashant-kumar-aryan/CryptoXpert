@@ -1,9 +1,8 @@
-* {
+*{
     margin: 0;
     padding: 0;
 }
 
-/* CSS reset to remove underlines */
 a {
     text-decoration: none;
 }
@@ -13,7 +12,7 @@ a {
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    padding: 25px 80px;
+    padding: 25px 0px 25px 0px;
     background-color: #020715;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     position: sticky;
@@ -21,11 +20,9 @@ a {
     left: 0;
     z-index: 999;
     transition: 0.6;
-    margin-bottom: 10px;
 }
-
 .logo h1 {
-    margin: 0;
+    margin-left: 30px;
     color: white;
     font-size: 32px;
 }
@@ -38,9 +35,8 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 70%;
+    margin-left: 80%;
 }
-
 #navbar li {
     list-style: none;
     padding: 0 20px;

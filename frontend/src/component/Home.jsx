@@ -4,6 +4,10 @@ import Coins from './Coins.jsx'
 import data from './temp'
 import Loader from "./Loader.jsx"
 import "./Home.css"
+import f1 from "./images/feature/f1.jpg"
+import f2 from "./images/feature/f2.jpg"
+import f3 from "./images/feature/f3.jpg"
+import f4 from "./images/feature/f4.jpg"
 const Home = () => { 
 const [coins,setCoins]=useState([]);
 const[loading,setLoading]=useState(true);
@@ -24,6 +28,7 @@ useEffect(() => {
   return (
     loading?<Loader/>:(
     <div className='home'>
+
       <section id="page-header" >
             <div >
               <h1 id ="hash">#</h1>
@@ -33,6 +38,28 @@ useEffect(() => {
               <h1>TRADE MORE</h1>
             </div>
       </section>
+
+      <section id="feature" class="section-p1">
+            <div class="fe-box">
+                <img src={f1} alt="feature1"/>
+                <h6>Smooth Interface</h6>
+            </div>
+            <div class="fe-box">
+                <img src={f2} alt="feature2"/>
+                <h6>Happy Learners</h6>
+            </div>
+            <div class="fe-box">
+                <img src={f3} alt="feature3"/>
+                <h6>24/7 suppport</h6>
+            </div>
+            <div class="fe-box">
+                <img src={f4} alt="feature4"/>
+                <h6>Quality Assured</h6>
+            </div>
+
+
+        </section>
+
     </div>
     )
   )
