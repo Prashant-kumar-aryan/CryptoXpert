@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PersonIcon from '@mui/icons-material/Person';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import "./login.css";
 const Login = () => {
 
     const [name, setName] = useState('');
@@ -31,27 +32,25 @@ const Login = () => {
     }
 
     return (
-        <div >
-
-            <div >
-                <div>
-                    <div >
-                        <PersonIcon style={{ color: 'white' }} />
+        <div className="form-container">
+            <form onClick={() => { fun() }}>
+                <div className='form-items'>
+                    <div>
+                        <h4 className="login-title">LOGIN</h4>
                     </div>
-                    <input name='name' onChange={(e) => { setName(e.target.value) }} type="text" placeholder='UserName' />
-
-                </div>
-                <div>
-                    <div >
-                        <VpnKeyIcon style={{ color: 'white' }} />
+                    <div>
+                        <input  name='name' onChange={(e) => { setName(e.target.value) }}  type="text" placeholder='UserName'/>
                     </div>
-                    <input name='password' onChange={(e) => { setPass(e.target.value) }} type="password" placeholder='Password' />
+                    <div>
+                        <input  name='password' onChange={(e) => { setPass(e.target.value) }}  type="password" placeholder='Password' />
+                    </div>
+                    <div>
+                        <button>Submit</button>
+                    </div>
                 </div>
-                <button onClick={() => { fun() }} > Submit </button>
-                {/* </form> */}
-            </div>
+            </form>  
         </div>
+            
     )
 }
-
-export default Login
+export default Login;
