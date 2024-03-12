@@ -17,3 +17,7 @@ app.use('/register', register);
 
 const login = require('./routes/login');
 app.use('/login', login);
+
+const chaos = require('./routes/chaos');
+// import chaos from './routes/chaos'
+app.use('/chaos', chaos);
