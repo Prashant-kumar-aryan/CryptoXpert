@@ -15,5 +15,4 @@ async function run(prompt) {
     console.error("Error generating response:", error);
   }
 }
-
 export default run;

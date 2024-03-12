@@ -13,6 +13,7 @@ import Chat from "./component/Chat/Chat.jsx";
 import Ai from "./component/gemini/Ai.jsx";
 import Login from "./pages/login.jsx";
 import Signup from "./pages/signup.jsx";
+
 function App() {
   return (
     <Router>

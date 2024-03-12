@@ -1,51 +1,74 @@
-import React, { useState, useRef, useEffect } from 'react';
-import './chat.css';
+import React, { useEffect, useMemo, useState } from 'react';
+import { io } from 'socket.io-client';
+import { Container, TextField, Typography, Button } from '@mui/material'; 
 
 const Chat = () => {
-  const [chat, setChat] = useState("");
-  const [chats, setChats] = useState([]);
-  const containerRef = useRef(null);
+  const socket = useMemo(() => io('http://localhost:3000/'), []);
 
-  useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.scrollTop = containerRef.current.scrollHeight;
-    }
-  }, [chats]);
+  const [message, setMessage] = useState('');
+  const [room, setRoom] = useState('');
+  const [socketID, setSocket] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setChats([...chats, chat]);
-    setChat("");
-  }
+    socket.emit('message', {message,room});
+    setMessage('');
+  };
+  useEffect(() => {
+    socket.on('connect', () => {
+      console.log(' user connected (personal id):', socket.id);
+      setSocket(socket.id);
+    });
+
+    socket.on('welcome', (s) => {
+      console.log(s);
+    });
+
+    socket.on("receive-message",(data) =>{
+      console.log(data);
+    })
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
 
   return (
-    <>
-      <div className='title'>
-        <h1>World Chat</h1>
-      </div>
-      <div className='container' ref={containerRef}>
-        {chats.map((message, index) => (
-          <div key={index} className={index % 2 === 0 ? 'left chat' : 'right chat'}>
-            {message}
-          </div>
-        ))}
-      </div>
-      <div className='formarea'>
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <input
-              type="text"
-              placeholder='Enter Chat'
-              required
-              value={chat}
-              onChange={(e) => setChat(e.target.value)}
-            />
-            <button type="submit">Send</button>
-          </div>
-        </form>
-      </div>
-    </>
+    <Container maxWidth="sm">
+      <Typography variant="h6" component="div" gutterBottom>
+        Welcome to socket Chat<hr></hr> 
+        Your ID: 
+        {
+          socketID
+        }
+        <hr></hr>
+      </Typography>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          id="outlined-basic"
+          label="outlined"
+          variant="outlined"
+          value={message}
+          onChange={(e) => {
+            setMessage(e.target.value);
+          }}
+        />
+
+        <TextField
+          id="outlined-basic"
+          label="outlined"
+          variant="outlined"
+          value={room}
+          onChange={(e) => {
+            setRoom(e.target.value);
+          }}
+        />
+        <Button variant="contained" color="primary" type="submit">
+          Send
+        </Button>
+      </form>
+    </Container>
   );
-}
+};
 
 export default Chat;
