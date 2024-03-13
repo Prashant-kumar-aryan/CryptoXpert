@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "./login.css";
 const Login = () => {
 
     const [name, setName] = useState('');
@@ -42,22 +43,25 @@ const Login = () => {
 
 
     return (
-        <div >
-
-            <div >
-                <div>
-
-                    <input name='name' onChange={(e) => { setName(e.target.value) }} type="text" placeholder='UserName' />
-
+        <div className="form-container">
+            <form onClick={() => { fun() }}>
+                <div className='form-items'>
+                    <div>
+                        <h4 className="login-title">LOGIN</h4>
+                    </div>
+                    <div>
+                        <input name='name' onChange={(e) => { setName(e.target.value) }} type="text" placeholder='UserName' />
+                    </div>
+                    <div>
+                        <input name='password' onChange={(e) => { setPass(e.target.value) }} type="password" placeholder='Password' />
+                    </div>
+                    <div>
+                        <button>Submit</button>
+                    </div>
                 </div>
-                <div>
-                    <input name='password' onChange={(e) => { setPass(e.target.value) }} type="password" placeholder='Password' />
-                </div>
-                <button onClick={() => { fun() }} > Submit </button>
-                {/* </form> */}
-            </div>
+            </form>
         </div>
+
     )
 }
-
-export default Login
+export default Login;

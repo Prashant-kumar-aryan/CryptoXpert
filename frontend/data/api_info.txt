@@ -1,0 +1,2 @@
+https://api.coingecko.com/api/v3/coins/list  <- gives list of coins in array form 
+https://api.coingecko.com/api/v3/simple/supported_vs_currencies    <- all available currencies

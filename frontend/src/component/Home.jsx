@@ -1,7 +1,6 @@
 //import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import Coins from './Coins.jsx'
-import data from './temp'
+// import data from './temp'
 import Loader from "./Loader.jsx"
 import "./Home.css"
 import f1 from "./images/feature/f1.jpg"
@@ -9,13 +8,13 @@ import f2 from "./images/feature/f2.jpg"
 import f3 from "./images/feature/f3.jpg"
 import f4 from "./images/feature/f4.jpg"
 const Home = () => { 
-const [coins,setCoins]=useState([]);
+// const [coins,setCoins]=useState([]);
 const[loading,setLoading]=useState(true);
 useEffect(() => {
   const fetchAllCoins = async () => {
     try {
       //const { data } = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&per_page=20");
-      setCoins(data);
+      // setCoins(data);
       setLoading(false);
     } catch (error) {
       alert("Error in api call")
