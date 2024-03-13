@@ -1,6 +1,7 @@
 const express = require("express");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
+const cors = require('cors');
 
 const app = express();
 const server = createServer(app);
@@ -8,6 +9,7 @@ const mongoose = require("mongoose");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors({origin: true, credentials: true}));
 
 const io = new Server(server, {
   cors: {
@@ -33,8 +35,10 @@ io.on("connection", (socket) => {
   });
 });
 
+const pass = encodeURIComponent("database@123");
+const uri = `mongodb+srv://sahil:${pass}@cluster0.vhve1kr.mongodb.net/crypto?retryWrites=true&w=majority&appName=Cluster0`;
 mongoose
-  .connect("mongodb+srv://dark:darkrino@cluster0.jeqnbtu.mongodb.net/crypto")
+  .connect(uri)
   .then(() => {
     server.listen(4000, () => {
       console.log(`Server is listning on Port ${4000} `);
