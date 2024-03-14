@@ -46,7 +46,7 @@ const uri = `mongodb+srv://sahil:${pass}@cluster0.vhve1kr.mongodb.net/crypto?ret
 mongoose
     .connect(uri)
     .then(() => {
-        server.listen(4000, () => {
+        app.listen(4000, () => {
             console.log(`Server is listning on Port ${4000} `);
         });
     })
