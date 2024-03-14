@@ -29,9 +29,8 @@ function App() {
         <Route path="/chat" element={<Chat />} />
         <Route path="/ai" element={<Ai />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/chaos" element={<Chaos />} />
-      </Routes >
+        <Route path="/register" element={<Signup />} />
+      </Routes>
       <Footer />
       <Whatsapp />
     </Router >
