@@ -120,11 +120,11 @@
     margin-bottom: 20px;
     transition: width 2s;
 }
-input[type=text]{
+.home > div > input[type=text]{
     text-align: center;
     margin-left: 26%;
     width:50%;
-}
+} 
 .LinearProgress{
     margin-left: 26%;
     width: 52%;
