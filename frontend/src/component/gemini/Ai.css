@@ -1,9 +1,10 @@
-/* ai.css */
+/* Ai.css */
 
 .ai-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
@@ -35,6 +36,7 @@ h3 {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
+    text-align: center;
 }
 
 .ai-form button {
@@ -51,13 +53,23 @@ h3 {
     background-color: #337ab7;
 }
 
-.ai-response {
-    margin-top: 1rem;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #eee;
-    font-size: 1rem;
-    white-space: pre-wrap;
-    /* Preserve line breaks */
+.chat-history {
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.left{
+    float: left;
+    background-color: grey;
+    padding: 5px;
+    border-radius: 5px;
+}
+.right{
+    float: right;
+    background-color: #ddd;
+    padding: 5px;
+    border-radius: 5px;
 }

@@ -31,8 +31,9 @@
     "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
     "socket.io-client": "^4.7.4",
-    "victory": "^37.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zustand": "^4.5.2",
+    "victory": "^37.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

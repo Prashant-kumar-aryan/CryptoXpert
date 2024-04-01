@@ -1,52 +1,66 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 //import Coins from './Coins.jsx'
-import Loader from "./Loader.jsx"
-import {data} from "./extemp.jsx"
-import ErrorComponent from "./ErrorComponent.jsx"
+import Loader from "./Loader.jsx";
+import { data } from "./extemp.jsx";
+import ErrorComponent from "./ErrorComponent.jsx";
+import "./Exchanges.css";
+import InsertLinkIcon from "@mui/icons-material/InsertLink";
+import ExchangesStore from "./stores/ExchangesStore.js";
 const Exchanges = () => {
-
-const [exchanges,setExchanges]=useState([]);
-const[loading,setLoading]=useState(true);
-const[error,seterror]=useState(false);
-useEffect(() => {
-  const fetchAllExchanges = async () => {
+  const [exchanges, setExchanges] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, seterror] = useState(false);
+  const store = ExchangesStore();
+  useEffect(() => {
     try {
-     // const { data } = await axios.get("https://api.coingecko.com/api/v3/exchanges");
-      
-     setLoading(false);
-      setExchanges(data);
-      console.log(data);
+      store.fetchExchanges();
+      if (store.Exchanges) {
+        setLoading(false);
+      }
     } catch (error) {
+      alert("Error in api call");
       console.error("Error fetching data:", error);
-      setLoading(false);
       seterror(true);
     }
-  };
-  fetchAllExchanges();
-}, []);
-  if(error) return <ErrorComponent message={"Error while Fetching Exchanges"}/>
+  }, []);
+  if (error)
+    return <ErrorComponent message={"Error while Fetching Exchanges"} />;
 
+  // return <Loader />;
+  return loading ? (
+    <Loader />
+  ) : (
+    <>
+      <div className="exchanges">
+        {store.Exchanges.map((i) => (
+          <ExchangesCard
+            key={i.key}
+            name={i.name}
+            imgSrc={i.imgSrc}
+            rank={i.rank}
+            url={i.url}
+          />
+        ))}
+      </div>
+    </>
+  );
+};
+const ExchangesCard = ({ name, imgSrc, rank, url }) => {
   return (
-    loading?<Loader/>:(
-    <div className='exchanges'>
-      {exchanges.map((i)=>(
-        <ExchangesCard key={i.id} name = {i.name} imgSrc={i.image} rank ={i.trust_score_rank}
-        url ={i.url}
-/>
-      ))}
-    </div>)
-  )
-}
-const ExchangesCard =({ name,imgSrc,rank,url})=>{
-  return (
-    <div className='exchangesCard'>
-      <a href={url} target='_blank'>
-        <img src={imgSrc} alt={name}/>
-        <h4>{rank}</h4>
-        <h4>{name}</h4>
+    <div className="exchangesCard">
+      <div className="iconWrapper">
+        <InsertLinkIcon
+          fontSize="small"
+          style={{ transform: "rotate(125deg)" }}
+        />
+      </div>
+      <a href={url} target="_blank">
+        <img src={imgSrc} alt={name} />
+        <h4 className="Trust rank">Rank - {rank}</h4>
+        <h4 className="ex-name">{name}</h4>
       </a>
     </div>
-  )
+  );
 };
-export default Exchanges
+export default Exchanges;
