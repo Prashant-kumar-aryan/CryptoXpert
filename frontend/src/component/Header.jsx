@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Header.css";
 import { Link, useLocation } from "react-router-dom";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import MailIcon from "@mui/icons-material/Mail";
+
 const Header = () => {
   const [activeLink, setActiveLink] = useState(1);
   const [showBox, setShowBox] = useState(false);
@@ -10,17 +11,6 @@ const Header = () => {
   const isAuthorized = localStorage.getItem("token");
   let user = "";
   if (isAuthorized) user = localStorage.getItem("crypto_email");
-
-  window.addEventListener('click', function(e){   
-    
-    if(e.target === document.getElementsByClassName("account_icon")[0])
-    {
-      showBox ? setShowBox(false) : setShowBox(true);
-    }
-    else if (showBox && e.target !== document.getElementById("clickBox")){
-      setShowBox(false);
-    }
-  });
 
   const logout = (e) => {
     e.preventDefault();
@@ -60,6 +50,31 @@ const Header = () => {
     }
   }, [location.pathname]);
 
+  const handleShowBoxClick = (e) => {
+    e.preventDefault();
+    setShowBox(!showBox);
+  };
+
+  const boxRef = useRef();
+  const iconRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        boxRef.current &&
+        !boxRef.current.contains(event.target) &&
+        iconRef.current &&
+        !iconRef.current.contains(event.target)
+      ) {
+        setShowBox(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
     <>
       <section id="header">
@@ -128,10 +143,9 @@ const Header = () => {
             </li>
             <li>
               <AccountBoxIcon
-                onClick={(e) =>
-                  e.preventDefault()
-                }
+                onClick={handleShowBoxClick}
                 className="account_icon"
+                ref={iconRef}
               />
             </li>
           </ul>
@@ -142,7 +156,7 @@ const Header = () => {
         </div>
       </section>
       {showBox && (
-        <div className="hover-box">
+        <div className="hover-box" ref={boxRef}>
           {isAuthorized ? (
             <div>
               <div className="btn">Logged In</div>
