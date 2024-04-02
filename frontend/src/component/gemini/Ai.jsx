@@ -26,7 +26,7 @@ const ContextProvider = () => {
       {loading && <LinearProgress />}
       <div className="ai-container">
         <h1>Hello User</h1>
-        <h3>How can I help You Today?</h3>
+        <h3 style={{ color: "gold" }}>How can I help You Today?</h3>
 
         <div className="chat-history">
           {chatHistory.map((chat, index) => (

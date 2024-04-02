@@ -16,6 +16,7 @@ a {
     z-index: 999;
     transition: 0.6;
 }
+
 .logo h1 {
     margin-left: 30px;
     color: white;
@@ -30,8 +31,9 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 80%;
+    margin-left: 70%;
 }
+
 #navbar li {
     list-style: none;
     padding: 0 20px;
@@ -46,6 +48,13 @@ a {
     /* text-transform: uppercase; */
 }
 
+.account_icon {
+    color: white;
+    font-size: 25px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
 #navbar li a:hover,
 #navbar li a.active {
     color: gold
@@ -54,6 +63,88 @@ a {
 #navbar a.active::after,
 #navbar li a:hover::after {
 
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    #navbar {
+        display: flex;
+        /* Keep flex for smaller screens */
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        /* Stack links vertically on small screens */
+        margin: 0;
+        /* Remove margin for better layout */
+        position: fixed;
+        /* Fix navbar to bottom on small screens (optional) */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        /* Make navbar full width */
+        background-color: #020715;
+        /* Optional background color for navbar */
+        transition: 0.6s;
+    }
+
+    #navbar li {
+        padding: 10px 0;
+        /* Adjust padding for smaller screens */
+    }
+
+    #navbar li a {
+        font-size: 16px;
+        /* Adjust font size for smaller screens */
+    }
+
+    .account_icon {
+        display: none;
+        /* Hide account icon on small screens (optional) */
+    }
+}
+
+#navbar {
+    /* Styles for larger screens */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 70%;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+    transition: 0.6s;
+}
+
+#navbar li a {
+    color: white;
+    font-size: 18px;
+    transition: 0.3s ease;
+    /* text-transform: uppercase; */
+}
+
+.account_icon {
+    color: white;
+    font-size: 25px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+#navbar a.active,
+#navbar li a:hover {
+    color: gold;
+}
+
+#navbar a.active::after,
+#navbar li a:hover::after {
     content: "";
     width: 30%;
     height: 2px;

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Header.css";
 import { Link, useLocation } from "react-router-dom";
-
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
 const Header = () => {
   const [activeLink, setActiveLink] = useState(1);
+  const [showBox, setShowBox] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -28,7 +29,7 @@ const Header = () => {
         setActiveLink(6);
         break;
       default:
-        setActiveLink(1);
+        setActiveLink(7);
         break;
     }
   }, [location.pathname]);
@@ -99,6 +100,16 @@ const Header = () => {
                 <span className="material-symbols-outlined">chat</span>
               </Link>
             </li>
+            <li>
+              <AccountBoxIcon
+                onClick={(e) =>
+                  e.preventDefault(
+                    showBox ? setShowBox(false) : setShowBox(true)
+                  )
+                }
+                className="account_icon"
+              />
+            </li>
           </ul>
         </div>
         <div id="mobile">
@@ -106,6 +117,13 @@ const Header = () => {
           <i id="bar" class="fa-solid fa-bars" ></i> */}
         </div>
       </section>
+      {showBox && (
+        <div className="hover-box">
+          <div>Login Icon</div>
+          <div>Register Icon</div>
+          <div>Your Name</div>
+        </div>
+      )}
     </>
   );
 };

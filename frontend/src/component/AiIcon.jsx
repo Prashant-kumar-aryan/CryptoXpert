@@ -11,7 +11,7 @@ const AiIcon = () => {
           src={ai_FloatingLogo}
           alt="FloatingLogo"
           className="FloatingLogo"
-          style={{ right: "7%", height: "9vh", bottom: "41px" }}
+          style={{ right: "7%", height: "8vh", bottom: "45px" }}
         />
       </Link>
       <div className="FloatingLogo-text">Ai-Assistant</div>

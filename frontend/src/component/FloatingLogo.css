@@ -29,9 +29,11 @@
     font-weight: bold;
     text-align: center;
     opacity: 0;
+    cursor:default;
     transition: opacity 0.3s ease-in-out;
 }
 
 .FloatingLogo-container:hover .FloatingLogo-text {
     opacity: 1;
+  
 }

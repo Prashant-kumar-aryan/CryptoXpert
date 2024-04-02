@@ -1,56 +1,79 @@
-import React, { useState } from 'react'
-import PersonIcon from '@mui/icons-material/Person';
-import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import { useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 import "./login.css";
+
 const Login = () => {
+  const [data, setData] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
 
-    const [name, setName] = useState('');
-    const [pass, setPass] = useState('');
-    function fun() {
-        const data = {
-            name: name,
-            password: pass
-        }
-        console.log(data);
-        console.log(JSON.stringify(data));
-        fun2();
-        async function fun2() {
-            try {
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
+  };
 
-                const res = await fetch('http://localhost:4000/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    mode: 'cors',
-                    body: JSON.stringify(data)
-                })
-                console.log(res);
-            }
-            catch (err) { }
-        }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const url = "http://localhost:8081/api/auth";
+      const { data: res } = await axios.post(url, data);
+      localStorage.setItem("token", res.data);
+      if (res.success) {
+        localStorage.setItem("crypto_email", data.email);
+        console.log(data.email);
+      }
+      window.location = "/";
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
     }
+  };
 
-    return (
-        <div className="form-container">
-            <form onClick={() => { fun() }}>
-                <div className='form-items'>
-                    <div>
-                        <h4 className="login-title">LOGIN</h4>
-                    </div>
-                    <div>
-                        <input  name='name' onChange={(e) => { setName(e.target.value) }}  type="text" placeholder='UserName'/>
-                    </div>
-                    <div>
-                        <input  name='password' onChange={(e) => { setPass(e.target.value) }}  type="password" placeholder='Password' />
-                    </div>
-                    <div>
-                        <button>Submit</button>
-                    </div>
-                </div>
-            </form>  
+  return (
+    <div className="login_container">
+      <div className="login_form_container">
+        <div className="left_login">
+          <form className="form_container" onSubmit={handleSubmit}>
+            <h1>Login to Your Account</h1>
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              onChange={handleChange}
+              value={data.email}
+              required
+              className="input"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              onChange={handleChange}
+              value={data.password}
+              required
+              className="input"
+            />
+            {error && <div className="error_msg">{error}</div>}
+            <button type="submit" className="green_btn">
+              Sing In
+            </button>
+          </form>
         </div>
-            
-    )
-}
+        <div className="right_login">
+          <h1>New Here ?</h1>
+          <Link to="/signup">
+            <button type="button" className="white_btn">
+              Sing Up
+            </button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default Login;

@@ -1,5 +1,4 @@
 /* Ai.css */
-
 .ai-container {
     display: flex;
     flex-direction: column;
@@ -14,12 +13,12 @@
     font-family: sans-serif;
 }
 
-h1 {
+.ai-container>h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-h3 {
+.ai-container>h3 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
     color: #888;
@@ -63,13 +62,16 @@ h3 {
 }
 .left{
     float: left;
-    background-color: grey;
+    background-color: #FFC94A;
     padding: 5px;
     border-radius: 5px;
+    margin-bottom: 2px;
+    max-width: 90%;
 }
 .right{
     float: right;
     background-color: #ddd;
     padding: 5px;
     border-radius: 5px;
+    margin-bottom:10px;
 }
