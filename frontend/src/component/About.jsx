@@ -7,6 +7,7 @@ import img2 from "./images/About/Sahil.jpg";
 import img3 from "./images/About/Akshat.png";
 import img4 from "./images/About/Divyanshi.jpg";
 import img5 from "./images/About/Shilpa.jpg";
+import Faq from "./Faq";
 
 const About = () => {
   return (
@@ -42,6 +43,7 @@ const About = () => {
           </div>
         </section>
       </div>
+      <Faq />
       <div className="team-section">
         <div className="container3">
           <div className="row">

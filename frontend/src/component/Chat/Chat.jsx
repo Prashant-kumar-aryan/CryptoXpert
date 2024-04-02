@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 
 const Chat = () => {
   const socket = useMemo(() => io("http://localhost:8081/"), []);
-
+  const user = localStorage.getItem("crypto_email").split("@")[0];
   const [socketID, setSocket] = useState("");
   const [message, setMessage] = useState("");
   const [room, SetRoom] = useState("");
@@ -51,9 +51,9 @@ const Chat = () => {
       <div className={styles.main_container}>
         <nav className={styles.navbar}>
           <h1>Crypto Chat</h1>
-          <button className={styles.white_btn} onClick={handleLogout}>
+          {/* <button className={styles.white_btn} onClick={handleLogout}>
             Logout
-          </button>
+          </button> */}
         </nav>
         <div ref={chatContainerRef} className={styles.chat_container}>
           {chats.map((chat, index) => (
@@ -65,6 +65,11 @@ const Chat = () => {
                   : styles.received_message
               }
             >
+              <p
+                style={{ fontSize: "10px", color: "green", fontWeight: "900" }}
+              >
+                {user}
+              </p>
               {chat.message}
             </div>
           ))}
