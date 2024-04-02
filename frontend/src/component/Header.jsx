@@ -3,10 +3,12 @@ import "./Header.css";
 import { Link, useLocation } from "react-router-dom";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import MailIcon from "@mui/icons-material/Mail";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState(1);
   const [showBox, setShowBox] = useState(false);
+  const [showMenu, setShowMenu] = useState(false); // State for menu visibility
   const location = useLocation();
   const isAuthorized = localStorage.getItem("token");
   let user = "";
@@ -55,6 +57,10 @@ const Header = () => {
     setShowBox(!showBox);
   };
 
+  const handleMenuClick = () => {
+    setShowMenu(!showMenu);
+  };
+
   const boxRef = useRef();
   const iconRef = useRef();
 
@@ -75,6 +81,7 @@ const Header = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   return (
     <>
       <section id="header">
@@ -86,7 +93,7 @@ const Header = () => {
           </Link>
         </div>
         <div>
-          <ul id="navbar">
+          <ul id="navbar" className={showMenu ? "show-menu" : ""}>
             <li>
               <Link
                 to="/"
@@ -151,8 +158,9 @@ const Header = () => {
           </ul>
         </div>
         <div id="mobile">
-          {/* <a href=""><span class="material-symbols-outlined">shopping_bag</span></a>
-          <i id="bar" class="fa-solid fa-bars" ></i> */}
+          <div className="menu-icon">
+            <MenuIcon className="menu-icon" onClick={handleMenuClick} />
+          </div>
         </div>
       </section>
       {showBox && (

@@ -13,7 +13,7 @@ a {
     position: sticky;
     top: 0;
     left: 0;
-    /* z-index: 999; */
+    z-index: 999;
     transition: 0.6;
 }
 
@@ -70,43 +70,6 @@ a {
     position: absolute;
     bottom: -4px;
     left: 20px;
-}
-
-@media screen and (max-width: 768px) {
-    #navbar {
-        display: flex;
-        /* Keep flex for smaller screens */
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        /* Stack links vertically on small screens */
-        margin: 0;
-        /* Remove margin for better layout */
-        position: fixed;
-        /* Fix navbar to bottom on small screens (optional) */
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        /* Make navbar full width */
-        background-color: #020715;
-        /* Optional background color for navbar */
-        transition: 0.6s;
-    }
-
-    #navbar li {
-        padding: 10px 0;
-        /* Adjust padding for smaller screens */
-    }
-
-    #navbar li a {
-        font-size: 16px;
-        /* Adjust font size for smaller screens */
-    }
-
-    .account_icon {
-        display: none;
-        /* Hide account icon on small screens (optional) */
-    }
 }
 
 #navbar {
@@ -182,4 +145,56 @@ a {
     left:-10px;
     top: -2px;
     color: white;
+}
+
+.menu-icon {
+    display: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    #navbar {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #020715;
+        width: 50%;
+        padding: 10px 0;
+        height: 90vh;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    #navbar.show-menu {
+        display: flex;
+        color: aliceblue;
+    }
+
+    #navbar li {
+        padding: 10px;
+        color: aliceblue;
+        text-align: left;
+    }
+        .hover-box {
+            
+            right: 50%;
+            top: 18%;
+            background-image: linear-gradient(to right, orange, #26ddff);
+            /* background-color:gold; */
+            font-weight: 600;
+            font-size: 12px;
+            padding: 2%;
+            border-radius: 10px;
+
+        }
+        .hover-box >div>button{
+            width: 50%;
+            padding: 1px;
+        }
 }
