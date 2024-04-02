@@ -1,15 +1,22 @@
-import React from 'react';
-import logo from "./images/logo/walogo.png";
-import "./whatsapp.css";
+import React from "react";
+import FloatingLogo from "./images/logo/walogo.png";
+import "./FloatingLogo.css";
 
 const Whatsapp = () => {
   return (
-    <a href="https://wa.me/7250412245" target='blank'>
-      <div className="whatsapp-container">
-        <img src={logo} alt="whatsapp" className='whatsapp' height="100vh"/>
-        <div className="whatsapp-text">Customer Support<p>click to chat</p></div>
+    <div className="FloatingLogo-container">
+      <a href="https://wa.me/7250412245" target="blank">
+        <img
+          src={FloatingLogo}
+          alt="FloatingLogo"
+          className="FloatingLogo"
+          height="100vh"
+        />
+      </a>
+      <div className="FloatingLogo-text">
+        Customer Support<p>click to chat</p>
       </div>
-    </a>
+    </div>
   );
 };
 

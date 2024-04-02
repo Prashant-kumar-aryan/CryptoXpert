@@ -1,4 +1,4 @@
-.whatsapp{
+.FloatingLogo{
     position: fixed;
     height: 10vh;
     bottom:40px;
@@ -6,35 +6,32 @@
     z-index: 999;
     filter: brightness(110%);
 }
-.whatsapp {
+.FloatingLogo {
     transition: all 0.3s ease-in-out;
 }
 
-.whatsapp:hover {
+.FloatingLogo:hover {
     transform: scale(1.1);
     filter: brightness(150%);
 }
-/* .whatsapp-container {
-    position: relative;
-    display: inline-block;
-} */
 
-.whatsapp-text {
+
+.FloatingLogo-text {
     position: fixed;
-    bottom: 45px;
+    bottom: 15%;
     right: 40px;
     padding: 10px;
     transform: translate(-50%, -50%);
     color: white;
     background-color:grey;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 10px;
     font-weight: bold;
     text-align: center;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
 
-.whatsapp-container:hover .whatsapp-text {
+.FloatingLogo-container:hover .FloatingLogo-text {
     opacity: 1;
 }
