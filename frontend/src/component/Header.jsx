@@ -10,7 +10,21 @@ const Header = () => {
   const isAuthorized = localStorage.getItem("token");
   let user = "";
   if (isAuthorized) user = localStorage.getItem("crypto_email");
-  console.log(user);
+
+  window.addEventListener('click', function(e){   
+    
+    if(e.target === document.getElementsByClassName("account_icon")[0])
+    {
+      console.log("Clicked1");
+      showBox ? setShowBox(false) : setShowBox(true);
+      console.log(showBox);
+    }
+    else if (showBox && e.target !== document.getElementById("clickBox")){
+      console.log("Clicked2");
+      setShowBox(false);
+      console.log(showBox);
+    }
+  });
 
   const logout = (e) => {
     e.preventDefault();
@@ -119,9 +133,7 @@ const Header = () => {
             <li>
               <AccountBoxIcon
                 onClick={(e) =>
-                  e.preventDefault(
-                    showBox ? setShowBox(false) : setShowBox(true)
-                  )
+                  e.preventDefault()
                 }
                 className="account_icon"
               />
