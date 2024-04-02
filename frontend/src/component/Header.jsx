@@ -6,6 +6,23 @@ const Header = () => {
   const [activeLink, setActiveLink] = useState(1);
   const [showBox, setShowBox] = useState(false);
   const location = useLocation();
+  const isAuthorized = localStorage.getItem("token");
+  let user = "";
+  if(isAuthorized)
+    user = localStorage.getItem("crypto_email");
+  console.log(user);
+
+  const logout = (e) => {
+    e.preventDefault();
+    try {
+      localStorage.setItem("token", "");
+      localStorage.setItem("crypto_email", "");
+      window.location = "/";
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     const currentPath = location.pathname;
@@ -119,9 +136,24 @@ const Header = () => {
       </section>
       {showBox && (
         <div className="hover-box">
-          <div>Login Icon</div>
-          <div>Register Icon</div>
-          <div>Your Name</div>
+          {isAuthorized ? 
+          <div>
+            <div className="btn">{user}</div>
+            <button type="button" className="white_btn btn" onClick={logout}>
+              Log Out
+            </button>
+          </div> : 
+          <div>
+            <button type="button" className="white_btn btn" onClick={() => {window.location = "/login"}}>
+              Login
+            </button><br/>
+            <button type="button" className="white_btn btn" onClick={() => {window.location = "/signup"}}>
+              Register
+            </button>
+          </div>
+          }
+          
+          
         </div>
       )}
     </>
