@@ -11,7 +11,6 @@ const Header = () => {
   if(isAuthorized)
     user = localStorage.getItem("crypto_email");
 
-
   window.addEventListener('click', function(e){   
     if (showBox && e.target !== document.getElementById("clickBox") && e.target !== document.getElementsByClassName("account_icon")[0]){
       console.log("Clicked");
