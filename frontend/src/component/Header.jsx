@@ -2,22 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./Header.css";
 import { Link, useLocation } from "react-router-dom";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import MailIcon from "@mui/icons-material/Mail";
 const Header = () => {
   const [activeLink, setActiveLink] = useState(1);
   const [showBox, setShowBox] = useState(false);
   const location = useLocation();
   const isAuthorized = localStorage.getItem("token");
   let user = "";
-  if(isAuthorized)
-    user = localStorage.getItem("crypto_email");
-
-  window.addEventListener('click', function(e){   
-    if (showBox && e.target !== document.getElementById("clickBox") && e.target !== document.getElementsByClassName("account_icon")[0]){
-      console.log("Clicked");
-      console.log(showBox);
-      setShowBox(false);
-    }
-  });
+  if (isAuthorized) user = localStorage.getItem("crypto_email");
+  console.log(user);
 
   const logout = (e) => {
     e.preventDefault();
@@ -25,8 +18,7 @@ const Header = () => {
       localStorage.setItem("token", "");
       localStorage.setItem("crypto_email", "");
       window.location = "/";
-    }
-    catch (error) {
+    } catch (error) {
       console.log(error);
     }
   };
@@ -142,25 +134,41 @@ const Header = () => {
         </div>
       </section>
       {showBox && (
-        <div className="hover-box" id="clickBox">
-          {isAuthorized ? 
-          <div>
-            <div className="btn">{user}</div>
-            <button type="button" className="white_btn btn" onClick={logout}>
-              Log Out
-            </button>
-          </div> : 
-          <div>
-            <button type="button" className="white_btn btn" onClick={() => {window.location = "/login"}}>
-              Login
-            </button><br/>
-            <button type="button" className="white_btn btn" onClick={() => {window.location = "/signup"}}>
-              Register
-            </button>
-          </div>
-          }
-          
-          
+        <div className="hover-box">
+          {isAuthorized ? (
+            <div>
+              <div className="btn">Logged In</div>
+              <div className="btn">
+                <MailIcon className="btn-mail-icon" />
+                {user}
+              </div>
+              <button type="button" className="white_btn btn" onClick={logout}>
+                Log Out
+              </button>
+            </div>
+          ) : (
+            <div>
+              <button
+                type="button"
+                className="white_btn btn"
+                onClick={() => {
+                  window.location = "/login";
+                }}
+              >
+                Login
+              </button>
+              <br />
+              <button
+                type="button"
+                className="white_btn btn"
+                onClick={() => {
+                  window.location = "/signup";
+                }}
+              >
+                Register
+              </button>
+            </div>
+          )}
         </div>
       )}
     </>

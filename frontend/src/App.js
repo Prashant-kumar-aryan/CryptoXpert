@@ -17,7 +17,6 @@ import AiIcon from "./component/AiIcon.jsx";
 import { Navigate } from "react-router-dom";
 function App() {
   const user = localStorage.getItem("token");
-  console.log(user);
   return (
     <Router>
       <Header />
