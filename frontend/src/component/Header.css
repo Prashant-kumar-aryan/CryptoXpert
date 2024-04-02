@@ -156,15 +156,30 @@ a {
 
 .hover-box {
     position: fixed;
-    right: 0px;
-    background-color: #cf9d13;
+    right:2%;
+    top: 18%;
+    background-image: linear-gradient(to right,orange,#26ddff);
+    /* background-color:gold; */
+    font-weight:600;
     padding: 1%;
     height: auto;
     border-radius: 10px;
 }
-
+.hover-box:hover{
+    transform: scale(1.01);
+    /* transition: 1s ease-in; */
+}
 .btn{
     margin: 2%;
     cursor: pointer;
-    
+    text-align: center;
+    position:relative;
+    margin-left: 10px;
+    margin-bottom: 2px;
+}
+.btn-mail-icon{
+    position: absolute;
+    left:-10px;
+    top: -2px;
+    color: white;
 }
