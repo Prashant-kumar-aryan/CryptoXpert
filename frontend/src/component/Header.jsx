@@ -10,7 +10,15 @@ const Header = () => {
   let user = "";
   if(isAuthorized)
     user = localStorage.getItem("crypto_email");
-  console.log(user);
+
+
+  window.addEventListener('click', function(e){   
+    if (showBox && e.target !== document.getElementById("clickBox") && e.target !== document.getElementsByClassName("account_icon")[0]){
+      console.log("Clicked");
+      console.log(showBox);
+      setShowBox(false);
+    }
+  });
 
   const logout = (e) => {
     e.preventDefault();
@@ -135,7 +143,7 @@ const Header = () => {
         </div>
       </section>
       {showBox && (
-        <div className="hover-box">
+        <div className="hover-box" id="clickBox">
           {isAuthorized ? 
           <div>
             <div className="btn">{user}</div>
