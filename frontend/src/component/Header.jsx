@@ -15,14 +15,10 @@ const Header = () => {
     
     if(e.target === document.getElementsByClassName("account_icon")[0])
     {
-      console.log("Clicked1");
       showBox ? setShowBox(false) : setShowBox(true);
-      console.log(showBox);
     }
     else if (showBox && e.target !== document.getElementById("clickBox")){
-      console.log("Clicked2");
       setShowBox(false);
-      console.log(showBox);
     }
   });
 
