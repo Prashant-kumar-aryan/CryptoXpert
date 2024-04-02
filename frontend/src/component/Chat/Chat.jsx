@@ -43,8 +43,14 @@ const Chat = () => {
   }, []);
 
   const scrollToBottom = () => {
-    chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight -
+        chatContainerRef.current.clientHeight;
+    }
   };
+
+  useEffect(scrollToBottom, [chats]);
 
   return (
     <>

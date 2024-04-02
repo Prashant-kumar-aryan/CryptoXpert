@@ -60,9 +60,10 @@
     flex-direction: column;
     width: 100%;
 }
-.left{
+.left_chat{
     float: left;
-    background-color: #FFC94A;
+    /* background-image: linear-gradient(orange); */
+    background-color:orange;
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 2px;

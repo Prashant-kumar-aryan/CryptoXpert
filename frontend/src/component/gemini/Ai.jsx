@@ -32,7 +32,9 @@ const ContextProvider = () => {
           {chatHistory.map((chat, index) => (
             <div key={index}>
               <div
-                className={`chat-message ${index % 2 === 0 ? "right" : "left"}`}
+                className={`chat-message ${
+                  index % 2 === 0 ? "right" : "left_chat"
+                }`}
               >
                 {chat}
               </div>
