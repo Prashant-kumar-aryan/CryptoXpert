@@ -153,3 +153,18 @@ a {
     bottom: -4px;
     left: 20px;
 }
+
+.hover-box {
+    position: fixed;
+    right: 0px;
+    background-color: #cf9d13;
+    padding: 1%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn{
+    margin: 2%;
+    cursor: pointer;
+    
+}
