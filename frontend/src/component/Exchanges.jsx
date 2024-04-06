@@ -57,7 +57,7 @@ const ExchangesCard = ({ name, imgSrc, rank, url }) => {
       </div>
       <a href={url} target="_blank">
         <img src={imgSrc} alt={name} />
-        <h4 className="Trust rank">Rank - {rank}</h4>
+        <h4 className="Trust rank">Trust Rank - {rank}</h4>
         <h4 className="ex-name">{name}</h4>
       </a>
     </div>

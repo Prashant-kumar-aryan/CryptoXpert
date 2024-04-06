@@ -87,8 +87,8 @@ const About = () => {
                 <h4>Web Developer</h4>
                 <p>
                   At the heart of our web development triumph is Sahil Singh,
-                  the brilliant mind behind the Backend Functionality and state
-                  management.{" "}
+                  the brilliant mind behind the Backend Functionality and
+                  Security.{" "}
                 </p>
               </div>
             </div>
@@ -101,8 +101,8 @@ const About = () => {
                 <h4>Web Developer</h4>
                 <p>
                   At the heart of our web development triumph is Akshat Kumar,
-                  the brilliant mind behind the Backend and Database
-                  Functionality .{" "}
+                  the brilliant mind behind the API calls , Backend , Database
+                  and Deploynment .{" "}
                 </p>
               </div>
             </div>
@@ -116,7 +116,8 @@ const About = () => {
                 <h4>Web Developer</h4>
                 <p>
                   At the heart of our web development triumph is Shilpa Kumari,
-                  the brilliant mind behind the Frontend , UI/UX and Api Calls.
+                  the brilliant mind behind the Frontend , UI/UX ,Responsiveness
+                  and Api Calls .
                 </p>
               </div>
             </div>
@@ -130,7 +131,8 @@ const About = () => {
                 <p>
                   {" "}
                   At the heart of our web development triumph is Divyanshi
-                  Tiwari, the brilliant mind behind the Frontend .
+                  Tiwari, the brilliant mind behind the Frontend and
+                  Responsiveness.
                 </p>
               </div>
             </div>
