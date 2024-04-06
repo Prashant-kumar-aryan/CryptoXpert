@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
-
+import LogoutIcon from "@mui/icons-material/Logout";
 const Header = () => {
   const [activeLink, setActiveLink] = useState(1);
   const [showBox, setShowBox] = useState(false);
@@ -172,7 +172,8 @@ const Header = () => {
                 <MailIcon className="btn-mail-icon" />
                 {user}
               </div>
-              <button type="button" className="white_btn btn" onClick={logout}>
+              <button type="button" className="logout_btn " onClick={logout}>
+                <LogoutIcon className="btn-logout-icon " />
                 Log Out
               </button>
             </div>

@@ -28,7 +28,9 @@ io.on("connection", (socket) => {
       const ret = {
         message: data.message,
         ID: socket.id,
+        user: data.user,
       };
+      console.log(data);
       io.emit("receive-message", ret);
     } else {
       io.to(data.room).emit(

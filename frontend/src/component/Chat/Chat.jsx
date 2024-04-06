@@ -4,7 +4,9 @@ import { io } from "socket.io-client";
 
 const Chat = () => {
   const socket = useMemo(() => io("http://localhost:8081/"), []);
+
   const user = localStorage.getItem("crypto_email").split("@")[0];
+
   const [socketID, setSocket] = useState("");
   const [message, setMessage] = useState("");
   const [room, SetRoom] = useState("");
@@ -19,7 +21,8 @@ const Chat = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    socket.emit("message", { message, room });
+    socket.emit("message", { message, room, user });
+    console.log("User id ", user);
     setMessage("");
   };
 
@@ -32,7 +35,7 @@ const Chat = () => {
     socket.on("receive-message", (data) => {
       setChats((prevChats) => [
         ...prevChats,
-        { message: data.message, ID: data.ID },
+        { message: data.message, ID: data.ID, user: data.user },
       ]);
       scrollToBottom();
     });
@@ -66,7 +69,7 @@ const Chat = () => {
             <div
               key={index}
               className={
-                chat.ID === socketID
+                user === chat.user
                   ? styles.sent_message
                   : styles.received_message
               }
@@ -74,7 +77,7 @@ const Chat = () => {
               <p
                 style={{ fontSize: "10px", color: "green", fontWeight: "900" }}
               >
-                {user}
+                {chat.user}
               </p>
               {chat.message}
             </div>
