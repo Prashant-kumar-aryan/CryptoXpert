@@ -14,6 +14,7 @@ const Home = () => {
   // const [coins,setCoins]=useState([]);
   const store = homeStore();
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     try {
       store.fetchCoins();
@@ -41,7 +42,7 @@ const Home = () => {
       <div>
         {store.featured && <h1 className="featured-h1">Featured coins</h1>}
         {!store.featured && (
-          <h1 className="featured-h1" style={{ background: "gold" }}>
+          <h1 className="featured-h1" style={{ background: "#90D26D" }}>
             Search Results
           </h1>
         )}
@@ -49,7 +50,7 @@ const Home = () => {
           type="text"
           value={store.query}
           onChange={store.setQuery}
-          placeholder="Type here to search"
+          placeholder="Type Here to Search"
         />
         {store.linearLoading && <LinearProgress className="LinearProgress" />}
         <div className="CoinList">

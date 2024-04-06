@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@google/generative-ai": "^0.2.1",
-    "react-alert": "^7.0.3"
+    "@google/generative-ai": "^0.2.1"
   }
 }

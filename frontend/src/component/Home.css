@@ -111,7 +111,7 @@
     background-color: #d1e8f2;
 }
 .featured-h1{
-    background-image: linear-gradient(to right , rgba(255,255,255,1),rgba(255,0,0,1));
+    background-image: linear-gradient(to right ,#020715,#02065A,#020715);
     padding: 15px;
     text-align: center;
     margin-top: 20px;
@@ -119,6 +119,9 @@
     margin-right: 20%;
     margin-bottom: 20px;
     transition: width 2s;
+    border-radius: 10px 0px;
+    box-shadow: 1px 1px 1px 1px;
+    color: rgba(255, 255, 255, 0.95);
 }
 .home > div > input[type=text]{
     text-align: center;
@@ -136,8 +139,10 @@
     flex-direction: column;
 }
 .CoinList > div >a {
-    color:#088178;
+    color: black;
     font-weight: bolder;
+   
+    
 }
 .CoinList>div{
     display: flex;
@@ -146,15 +151,16 @@
     width: 50%;
     margin-left: 26%;
     margin-top: 0.5%;
-    /* border-bottom: 1px solid black; */
     padding: 10px;
+    border-radius: 10px 0px;
+    box-shadow: px 0px 0px 0px;
 }
 .priceInr{
     color: rgb(78, 68, 16);
 }
 .CoinListItem {
-    background-image: linear-gradient(to right,rgba(255, 0, 0, 0),
-    rgba(139, 197, 63, 1));
+    background-image:linear-gradient(to right, #FFD698, #FFD698);
+ 
     padding: 10px;
     margin: 5px 0;
     box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);

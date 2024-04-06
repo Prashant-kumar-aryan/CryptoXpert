@@ -65,6 +65,21 @@ const Chat = () => {
           </button> */}
         </nav>
         <div ref={chatContainerRef} className={styles.chat_container}>
+          <p
+            style={{
+              textAlign: "center",
+              color: "white",
+              fontSize: "10px",
+              background: "grey",
+              margin: "0% 40%",
+              border: "25px",
+              borderRadius: "2px",
+              padding: "4px 6px",
+            }}
+          >
+            {" "}
+            --Welcome To Crypto World Chat--
+          </p>
           {chats.map((chat, index) => (
             <div
               key={index}
