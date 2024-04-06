@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 // import data from './temp'
 import Loader from "./Loader.jsx";
-import "./Home.css";
+import "../component/Styles/Home.css";
 import f1 from "./images/feature/f1.jpg";
 import f2 from "./images/feature/f2.jpg";
 import f3 from "./images/feature/f3.jpg";

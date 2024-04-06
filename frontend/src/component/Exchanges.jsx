@@ -1,10 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-//import Coins from './Coins.jsx'
 import Loader from "./Loader.jsx";
-import { data } from "./extemp.jsx";
 import ErrorComponent from "./ErrorComponent.jsx";
-import "./Exchanges.css";
+import "../component/Styles/Exchanges.css";
 import InsertLinkIcon from "@mui/icons-material/InsertLink";
 import ExchangesStore from "./stores/ExchangesStore.js";
 const Exchanges = () => {

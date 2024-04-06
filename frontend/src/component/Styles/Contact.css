@@ -8,7 +8,7 @@
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    background:rgba(0,0,0,0.7)url("./images/Contact/ContactBg.jpg");
+    background:rgba(0,0,0,0.7)url("../../component/images/Contact/ContactBg.jpg");
     background-blend-mode: darken;
     background-size:cover;
 

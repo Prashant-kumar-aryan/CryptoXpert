@@ -1,6 +1,6 @@
 import React from "react";
 import ai_FloatingLogo from "./images/logo/ai.png";
-import "./FloatingLogo.css";
+import "../component/Styles/FloatingLogo.css";
 import { Link } from "react-router-dom";
 
 const AiIcon = () => {

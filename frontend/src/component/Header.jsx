@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./Header.css";
+import "../component/Styles/Header.css";
 import { Link, useLocation } from "react-router-dom";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import MailIcon from "@mui/icons-material/Mail";

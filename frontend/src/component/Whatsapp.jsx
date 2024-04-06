@@ -1,6 +1,6 @@
 import React from "react";
 import FloatingLogo from "./images/logo/walogo.png";
-import "./FloatingLogo.css";
+import "../component/Styles/FloatingLogo.css";
 
 const Whatsapp = () => {
   return (

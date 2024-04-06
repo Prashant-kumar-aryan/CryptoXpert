@@ -3,8 +3,8 @@ import { FaPhoneVolume } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 import { MdLocationPin } from "react-icons/md";
 import axios from "axios";
+import "../component/Styles/Contact.css";
 
-import "./Contact.css";
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

@@ -19,7 +19,7 @@
 } */
 #page-header {
     margin-top: 1px;
-    background: rgba(0, 0, 0, 0.6)url("./images/banner/Banner1.jpg");
+    background: rgba(0, 0, 0, 0.6)url("../../component/images/banner/Banner1.jpg");
     background-blend-mode: darken;
     height: 40vh;
     width: 100%;

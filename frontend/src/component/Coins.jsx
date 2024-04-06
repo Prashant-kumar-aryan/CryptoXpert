@@ -3,7 +3,7 @@ import CoinCard from "./CoinCard.jsx";
 import Loader from "./Loader.jsx";
 import ErrorComponent from "./ErrorComponent.jsx";
 import coinsStore from "./stores/CoinStore.js";
-import "./Coins.css";
+import "../component/Styles/Coins.css";
 const Coins = () => {
   const {
     coins,
