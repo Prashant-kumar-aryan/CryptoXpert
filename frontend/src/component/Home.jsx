@@ -10,6 +10,7 @@ import f4 from "./images/feature/f4.jpg";
 import homeStore from "./stores/homeStore.js";
 import { Link } from "react-router-dom";
 import { LinearProgress } from "@mui/material";
+
 const Home = () => {
   // const [coins,setCoins]=useState([]);
   const store = homeStore();

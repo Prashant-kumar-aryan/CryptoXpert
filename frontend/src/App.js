@@ -14,7 +14,7 @@ import Ai from "./component/gemini/Ai.jsx";
 import Login from "./pages/login.jsx";
 import Signup from "./pages/signup.jsx";
 import AiIcon from "./component/AiIcon.jsx";
-import { Navigate } from "react-router-dom";
+import AccessDeniedPage from "./pages/AccessDeniedPage.jsx";
 function App() {
   const user = localStorage.getItem("token");
   return (
@@ -24,23 +24,20 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route
           path="/coins"
-          element={user ? <Coins /> : <Navigate to="/login" />}
+          element={user ? <Coins /> : <AccessDeniedPage />}
         />
         <Route
           path="/coins/:id"
-          element={user ? <CoinDetails /> : <Navigate to="/login" />}
+          element={user ? <CoinDetails /> : <AccessDeniedPage />}
         />
         <Route
           path="/exchanges"
-          element={user ? <Exchanges /> : <Navigate to="/login" />}
+          element={user ? <Exchanges /> : <AccessDeniedPage />}
         />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
-        <Route
-          path="/chat"
-          element={user ? <Chat /> : <Navigate to="/login" />}
-        />
-        <Route path="/ai" element={user ? <Ai /> : <Navigate to="/login" />} />
+        <Route path="/chat" element={user ? <Chat /> : <AccessDeniedPage />} />
+        <Route path="/ai" element={user ? <Ai /> : <AccessDeniedPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
