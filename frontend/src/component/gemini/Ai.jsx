@@ -22,51 +22,43 @@ const ContextProvider = () => {
   };
 
   function chats(chat) {
-    console.log("type = ", typeof(chat));
+    console.log("type = ", typeof chat);
     console.log("content = ", chat);
-    if(chat === undefined)
-      return "";
+    if (chat === undefined) return "";
 
     const children = [];
     let temp = [];
     let para = null;
-    let curr = 0, next = -1;
+    let curr = 0,
+      next = -1;
 
-    while(1) 
-    {
+    while (1) {
       next = chat.indexOf("*", curr);
-      if(next === -1)
-      {
+      if (next === -1) {
         para = createElement("p", {}, chat.substr(curr));
         children.push(para);
         break;
       }
-      
-      if(next > curr)
-      {
-        temp.push(createElement("p", {}, chat.substr(curr, next-curr)));
+
+      if (next > curr) {
+        temp.push(createElement("p", {}, chat.substr(curr, next - curr)));
       }
-      
-      curr = next+2;
-      if(chat[next+1] === ' ')
-      {
+
+      curr = next + 2;
+      if (chat[next + 1] === " ") {
         para = createElement("p", {}, ...temp);
         children.push(para);
         para = null;
         temp = [];
-      }
-      else
-      {
+      } else {
         next = chat.indexOf("**", curr);
         temp.push(createElement("br"));
-        temp.push(createElement("h3", {}, chat.substr(curr, next-curr)));
-        curr = next+2;
+        temp.push(createElement("h3", {}, chat.substr(curr, next - curr)));
+        curr = next + 2;
       }
-      
     }
-      
-    return createElement('div', {}, ...children);
-    
+
+    return createElement("div", {}, ...children);
   }
 
   return (
@@ -84,7 +76,7 @@ const ContextProvider = () => {
                   index % 2 === 0 ? "right" : "left_chat"
                 }`}
               >
-                {index%2 === 0 ? chat : chats(chat)}
+                {index % 2 === 0 ? chat : chats(chat)}
               </div>
             </div>
           ))}

@@ -24,9 +24,6 @@ const Coins = () => {
     <Loader />
   ) : (
     <>
-      {error && (
-        <ErrorComponent message="Showing Previous Data APi calls limit exceeded !" />
-      )}
       <div className="CoinContainer">
         {coins.map((coin) => (
           <CoinCard
@@ -49,6 +46,9 @@ const Coins = () => {
           Next
         </button>
       </div>
+      {error && (
+        <ErrorComponent message="Showing Previous Data APi calls limit exceeded !" />
+      )}
     </>
   );
 };
