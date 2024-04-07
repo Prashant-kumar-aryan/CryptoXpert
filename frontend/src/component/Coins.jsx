@@ -5,7 +5,7 @@ import ErrorComponent from "./ErrorComponent.jsx";
 import coinsStore from "./stores/CoinStore.js";
 import "../component/Styles/Coins.css";
 const Coins = () => {
-  const {
+  let {
     coins,
     loading,
     error,
@@ -20,12 +20,13 @@ const Coins = () => {
     fetchCoins();
   }, []);
 
-  if (error) return <ErrorComponent message="Error fetching data" />;
-
   return loading ? (
     <Loader />
   ) : (
     <>
+      {error && (
+        <ErrorComponent message="Showing Previous Data APi calls limit exceeded !" />
+      )}
       <div className="CoinContainer">
         {coins.map((coin) => (
           <CoinCard

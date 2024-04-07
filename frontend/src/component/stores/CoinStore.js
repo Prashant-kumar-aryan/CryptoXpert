@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import axios from "axios";
+import { prevData } from "../bitcoin";
 
 const coinsStore = create((set) => ({
   coins: [],
@@ -14,9 +15,9 @@ const coinsStore = create((set) => ({
       const { data } = await axios.get(
         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&per_page=12&page=${page}`
       );
-      set({ coins: data, loading: false });
+      set({ coins: data, loading: false, error: false });
     } catch (error) {
-      set({ error: true });
+      set({ error: true, coins: prevData, loading: false });
       console.error("Error fetching data:", error);
     }
   },
