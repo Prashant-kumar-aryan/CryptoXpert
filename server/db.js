@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-const DB = "mongodb://127.0.0.1:27017/loginpage";
+const DB = process.env.DB;
 
 module.exports = () => {
   try {
