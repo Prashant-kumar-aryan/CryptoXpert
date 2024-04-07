@@ -12,7 +12,6 @@ const Coins = () => {
     fetchCoins,
     prevPage,
     nextPage,
-    handleCurrencyChange,
     getCurrencySymbol,
   } = coinsStore();
 

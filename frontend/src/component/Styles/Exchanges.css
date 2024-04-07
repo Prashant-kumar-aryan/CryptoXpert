@@ -8,20 +8,21 @@
 
 .exchangesCard {
     position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-decoration: none;
 }
 .iconWrapper {
     position: absolute;
     top: 5px;
     right: 5px;
     z-index: 1;
+    color:rgb(40, 61, 7);
 }
 .exchangesCard>a {
-    background: rgba(139, 197, 63, 0.8);
+    background: rgba(0, 0, 0, 0.162);
     color: black;
     text-decoration: none;
     margin: 10px;
@@ -49,7 +50,6 @@
 
 .rank {
     font-size: 15px;
-    color: aliceblue;
     margin-bottom: 5px;
 }
 

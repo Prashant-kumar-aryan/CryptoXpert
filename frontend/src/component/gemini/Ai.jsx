@@ -22,8 +22,8 @@ const ContextProvider = () => {
   };
 
   function chats(chat) {
-    console.log("type = ", typeof chat);
-    console.log("content = ", chat);
+    // console.log("type = ", typeof chat);
+    // console.log("content = ", chat);
     if (chat === undefined) return "";
 
     const children = [];
