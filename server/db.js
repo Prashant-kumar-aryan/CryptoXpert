@@ -5,8 +5,9 @@ const DB = process.env.DB;
 
 module.exports = () => {
   try {
-    mongoose.connect(DB);
-    console.log("Connected to database successfully");
+    mongoose.connect(DB).then(() => {
+      console.log("Connected to database successfully");
+    });
   } catch (error) {
     console.log(error);
     console.log("Could not connect database!");
