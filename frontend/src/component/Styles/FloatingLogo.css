@@ -6,16 +6,21 @@
     z-index: 999;
     filter: brightness(110%);
 }
+.FloatingLogo2{
+    position: fixed;
+    z-index: 999;
+    filter: brightness(110%);
+    right: 7%;
+    height: 8vh;
+    bottom: 45px;
+}
 .FloatingLogo {
     transition: all 0.3s ease-in-out;
 }
-
 .FloatingLogo:hover {
     transform: scale(1.1);
     filter: brightness(150%);
 }
-
-
 .FloatingLogo-text {
     position: fixed;
     bottom: 15%;
@@ -35,5 +40,12 @@
 
 .FloatingLogo-container:hover .FloatingLogo-text {
     opacity: 1;
-  
+}
+
+@media (max-width: 768px) {
+    .FloatingLogo2 {
+        right:25%;
+        z-index: 999;
+        filter: brightness(110%);
+    }
 }
