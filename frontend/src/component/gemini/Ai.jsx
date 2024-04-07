@@ -28,11 +28,8 @@ const ContextProvider = () => {
       return "";
 
     const children = [];
-
-    let para = null;
-
     let temp = [];
-
+    let para = null;
     let curr = 0, next = -1;
 
     while(1) 
@@ -49,7 +46,7 @@ const ContextProvider = () => {
       {
         temp.push(createElement("p", {}, chat.substr(curr, next-curr)));
       }
-
+      
       curr = next+2;
       if(chat[next+1] === ' ')
       {
@@ -61,6 +58,7 @@ const ContextProvider = () => {
       else
       {
         next = chat.indexOf("**", curr);
+        temp.push(createElement("br"));
         temp.push(createElement("h3", {}, chat.substr(curr, next-curr)));
         curr = next+2;
       }
