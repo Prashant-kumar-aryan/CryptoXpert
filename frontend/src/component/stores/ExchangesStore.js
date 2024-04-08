@@ -3,7 +3,7 @@ import { create } from "zustand";
 
 const ExchangesStore = create((set) => ({
   Exchanges: [],
-
+  error: false,
   fetchExchanges: async () => {
     try {
       const res = await axios.get("https://api.coingecko.com/api/v3/exchanges");
@@ -16,8 +16,9 @@ const ExchangesStore = create((set) => ({
           url: i.url,
         };
       });
-      set({ Exchanges });
+      set({ Exchanges, error: false });
     } catch (error) {
+      set({ error: true });
       console.error("Error fetching coins:", error);
     }
   },

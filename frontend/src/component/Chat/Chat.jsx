@@ -12,6 +12,7 @@ const Chat = () => {
   const [room, SetRoom] = useState("");
   const [chats, setChats] = useState([]);
   const chatContainerRef = useRef(null);
+  const [onlineUsers, setOnlineUsers] = useState(0);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -40,6 +41,10 @@ const Chat = () => {
       scrollToBottom();
     });
 
+    socket.on("online-users-count", (count) => {
+      setOnlineUsers(count);
+    });
+
     return () => {
       socket.disconnect();
     };
@@ -60,6 +65,17 @@ const Chat = () => {
       <div className={styles.main_container}>
         <nav className={styles.navbar}>
           <h1>Crypto Chat</h1>
+          <h5
+            style={{
+              padding: "4px",
+              borderRadius: "10px",
+              background: "#E8EFCF",
+              color: "#075e54",
+              margin: "10px",
+            }}
+          >
+            Online : {onlineUsers}
+          </h5>
           {/* <button className={styles.white_btn} onClick={handleLogout}>
             Logout
           </button> */}

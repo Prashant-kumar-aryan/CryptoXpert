@@ -91,7 +91,6 @@ a {
     color: white;
     font-size: 18px;
     transition: 0.3s ease;
-    /* text-transform: uppercase; */
 }
 
 .account_icon {
@@ -205,10 +204,8 @@ a {
     }
         .hover-box {
             
-            right: 50%;
+            right: 60%;
             top: 18%;
-            background-image: linear-gradient(to right, orange, #26ddff);
-            /* background-color:gold; */
             font-weight: 600;
             font-size: 12px;
             padding: 2%;
@@ -218,5 +215,11 @@ a {
         .hover-box >div>button{
             width: 50%;
             padding: 1px;
+        }
+        .btn-logout-icon{
+            opacity: 0;
+        }
+        .btn-mail-icon{
+            opacity: 0;
         }
 }

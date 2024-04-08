@@ -10,7 +10,7 @@ const { Server } = require("socket.io");
 const { createServer } = require("http");
 
 const server = createServer(app);
-
+let online_users = 0;
 const io = new Server(server, {
   cors: {
     origin: "*",
@@ -21,6 +21,8 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
   console.log("User connected (personal socket id):", socket.id);
+  online_users += 1;
+  io.emit("online-users-count", online_users);
 
   socket.on("message", (data) => {
     console.log(`Info: ${data.message}`);
@@ -41,7 +43,10 @@ io.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
+    online_users -= 1;
+    console.log(online_users);
     console.log("User Disconnected", socket.id);
+    io.emit("online-users-count", online_users);
   });
 });
 

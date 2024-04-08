@@ -12,12 +12,14 @@ const Exchanges = () => {
   const store = ExchangesStore();
   useEffect(() => {
     try {
+      setLoading(true);
       store.fetchExchanges();
       if (store.Exchanges) {
         setLoading(false);
       }
+      const temp = store.getState().error;
+      seterror(temp);
     } catch (error) {
-      alert("Error in api call");
       console.error("Error fetching data:", error);
       seterror(true);
     }
