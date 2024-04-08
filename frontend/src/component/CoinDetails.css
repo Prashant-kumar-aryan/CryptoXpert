@@ -13,13 +13,13 @@
     margin-right: 5px;
     padding: 10px;
     border: 1px solid #002D62;
-    background-color: #A7C7E7;
+    /* background-color: #A7C7E7; */
 
 }
 
 .rightr {
     flex: 2;
-    background-color: #A7C7E7;
+    /* background-color: #E0FFFF; */
     margin-left: 5px;
     padding: 10px;
     height: max-content;
