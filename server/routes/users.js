@@ -8,6 +8,11 @@ router.post("/", async (req, res) => {
     if (error)
       return res.status(400).send({ message: error.details[0].message });
     console.log(req.body);
+    // Before saving the user
+    // if (!req.body.username) {
+    //   return res.status(400).send({ message: "Username is required" });
+    // }
+
     const user = await User.findOne({ email: req.body.email });
     if (user)
       return res
@@ -21,6 +26,7 @@ router.post("/", async (req, res) => {
     res.status(201).send({ message: "User created successfully" });
   } catch (error) {
     res.status(500).send({ message: "Internal Server Error" });
+    console.log(error);
   }
 });
 
