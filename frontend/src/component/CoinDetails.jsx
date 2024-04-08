@@ -15,7 +15,7 @@ import { VictoryChart, VictoryStack, VictoryArea, VictoryAxis } from 'victory';
 const CoinDetails = () => {
   const { id } = useParams();
 
-  const [grp, setGrp] = useState(1);
+  const [grp, setGrp] = useState(360);
   const [grpData, setGrpData] = useState([]);
   // const costo = data.market_data.current_price.usd;
   const [loading, setLoading] = useState(false);
@@ -244,7 +244,7 @@ const CoinDetails = () => {
                         onLoad: { duration: 600 }
                       }}>
                       <VictoryStack>
-                        <VictoryArea name="area-4" data={grpData} style={{ data: { fill: '#00CCCC' } }} />
+                        <VictoryArea name="area-4" data={grpData} style={{ data: { fill: 'white', stroke: "red", strokeWidth: 1 } }} />
                       </VictoryStack>
                     </VictoryChart>
                   </div> : <><Loader /></>
