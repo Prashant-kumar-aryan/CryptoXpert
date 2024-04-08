@@ -10,8 +10,6 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import EqualizerIcon from '@mui/icons-material/Equalizer';
-import RedditIcon from '@mui/icons-material/Reddit';
-import HomeIcon from '@mui/icons-material/Home';
 import { VictoryChart, VictoryStack, VictoryArea, VictoryAxis } from 'victory';
 
 const CoinDetails = () => {
@@ -23,6 +21,7 @@ const CoinDetails = () => {
   const [loading, setLoading] = useState(false);
   const [val, setVal] = useState(1);
   const [coin, setCoin] = useState({});
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch(`https://api.coingecko.com/api/v3/coins/${id}`, { method: "GET" })
@@ -31,6 +30,9 @@ const CoinDetails = () => {
         const coinDate = await res.json();
         setCoin(coinDate);
         console.log(coin);
+      })
+      .catch(() => {
+        setError("Failed to Fetch coin detail")
       })
   }, [])
   // async function fun() {
@@ -43,18 +45,29 @@ const CoinDetails = () => {
     setLoading(true)
     fetch(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${grp}`)
       .then(async (res) => {
+        if (!res.ok) { // if HTTP status is not OK
+          throw Error('Could not fetch the data');
+        }
         const data = await res.json();
         const data2 = val === 1 ? await data.prices : val === 2 ? await data.market_caps : await data.total_volumes;
         const data1 = data2.map((item, index) => {
           return { x: index, y: item[1] }
         })
         setGrpData(data1);
+        setError(null);
       })
-    setLoading(false);
+      .catch((error) => {
+        // setError(error.message);
+        setError("Failed to Fetch data")
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [grp, val])
 
   return (
     <>
+      {error && <div>{error}</div>}
       {
         Object.keys(coin).length !== 0
           ? <>
@@ -154,10 +167,6 @@ const CoinDetails = () => {
 
                 </div>
                 <br />
-                <div className='flex-row'>
-                  <RedditIcon style={{ color: "tomato", }} />
-                  <HomeIcon style={{}} />
-                </div>
               </div>
               {/* <hr /> */}
               <div className='rightr' >
