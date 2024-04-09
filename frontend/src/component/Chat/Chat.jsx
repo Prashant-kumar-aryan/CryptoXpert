@@ -40,7 +40,7 @@ const Chat = () => {
         { message: data.message, ID: data.ID, user: data.user },
       ]);
       scrollToBottom();
-      playMessageSound();
+      // playMessageSound();
     });
 
     socket.on("online-users-count", (count) => {
