@@ -11,16 +11,19 @@ const Exchanges = () => {
   const [error, seterror] = useState(false);
   const store = ExchangesStore();
   useEffect(() => {
-    try {
-      setLoading(true);
-      store.fetchExchanges();
-      if (store.Exchanges) {
-        setLoading(false);
+    const fetchEx = async () => {
+      try {
+        setLoading(true);
+        await store.fetchExchanges();
+        if (store.Exchanges) {
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        seterror(true);
       }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      seterror(true);
-    }
+    };
+    fetchEx();
   }, []);
   if (error)
     return <ErrorComponent message={"Error while Fetching Exchanges"} />;
