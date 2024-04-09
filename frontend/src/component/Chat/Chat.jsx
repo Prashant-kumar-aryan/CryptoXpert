@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { io } from "socket.io-client";
-import messageSound from "./sound.mp3";
+import messageSound from "./sound3.mp3";
 const Chat = () => {
   const messageAudio = new Audio(messageSound);
   const socket = useMemo(() => io("http://localhost:8081/"), []);
