@@ -10,7 +10,7 @@ const { Server } = require("socket.io");
 const { createServer } = require("http");
 
 const server = createServer(app);
-let online_users = 0;
+let online_users = -1;
 const io = new Server(server, {
   cors: {
     origin: "*",
