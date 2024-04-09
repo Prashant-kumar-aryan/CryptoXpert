@@ -1,8 +1,9 @@
 import styles from "./styles.module.css";
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { io } from "socket.io-client";
-
+import messageSound from "./sound.mp3";
 const Chat = () => {
+  const messageAudio = new Audio(messageSound);
   const socket = useMemo(() => io("http://localhost:8081/"), []);
 
   const user = localStorage.getItem("crypto_email").split("@")[0];
@@ -22,7 +23,7 @@ const Chat = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    socket.emit("message", { message, room, user });
+    if (message.length > 0) socket.emit("message", { message, room, user });
     console.log("User id ", user);
     setMessage("");
   };
@@ -39,6 +40,7 @@ const Chat = () => {
         { message: data.message, ID: data.ID, user: data.user },
       ]);
       scrollToBottom();
+      playMessageSound();
     });
 
     socket.on("online-users-count", (count) => {
@@ -49,6 +51,10 @@ const Chat = () => {
       socket.disconnect();
     };
   }, []);
+
+  const playMessageSound = () => {
+    messageAudio.play(); // Play the audio
+  };
 
   const scrollToBottom = () => {
     if (chatContainerRef.current) {
