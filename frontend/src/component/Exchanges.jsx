@@ -17,8 +17,6 @@ const Exchanges = () => {
       if (store.Exchanges) {
         setLoading(false);
       }
-      const temp = store.getState().error;
-      seterror(temp);
     } catch (error) {
       console.error("Error fetching data:", error);
       seterror(true);
