@@ -38,8 +38,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/chat" element={user ? <Chat /> : <AccessDeniedPage />} />
         <Route path="/ai" element={user ? <Ai /> : <AccessDeniedPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={!user && <Login />} />
+        <Route path="/signup" element={!user && <Signup />} />
       </Routes>
       <Footer />
       <Whatsapp />
